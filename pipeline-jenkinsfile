@@ -34,23 +34,24 @@ pipeline {
                         sh 'sleep 5'
                     }
                 }
-                stage('Post-Test') {
+                stage('Test') {
                     steps {
                         echo "Testing is started"
                         sh 'sleep 5'
                     }
                 }
-            }
-        }
-        stage('Server1') {
-            steps {
-                echo "Server1 Deploying is started"
-                sh 'sleep 5'
-            }
-        }
- stage('Server2') {
+                stage('Post-Test') {
                     steps {
-                        echo  "Server2 Deploying is started"
+                        echo "Post-Testing is started"
+                        sh 'sleep 5'
+                    }
+                }
+            }
+        }
+        
+ stage('Deploy') {
+                    steps {
+                        echo  "Deploying is started"
                         sh 'sleep 5'
                     }
                 }
