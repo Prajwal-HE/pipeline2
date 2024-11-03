@@ -2,20 +2,35 @@ pipeline{
   agent any;
     stages{
     parallel{
-      stage('Build'){
+      stage('Pre-Build'){
         steps {
-            echo "Building is started"
+            echo "Pre-Building is started"
             sh 'sleep 5'
             }
           }
+          stage('Build'){
+                  steps {
+                      echo "Building is started"
+                      sh 'sleep 5'
+                      }
+                    }
+                  }
           stages{
           parallel{
-              stage('Test'){
+              stage('Pre-Test'){
+                steps{
+                  echo "Pre-Testing is started"
+                  sh 'sleep 5'
+                  }
+                 }
+                   stage('Test'){
                 steps{
                   echo "Testing is started"
                   sh 'sleep 5'
                   }
                  }
+                }
+              
                   stage('Deploy'){
                   steps {
                   echo "Deplying is started"
@@ -25,5 +40,4 @@ pipeline{
           }
         }
       }
-}
-}
+
