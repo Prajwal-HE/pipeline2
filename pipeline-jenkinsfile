@@ -42,11 +42,18 @@ pipeline {
                 }
             }
         }
-        stage('Deploy') {
+        stage('Server1') {
             steps {
-                echo "Deploying is started"
+                echo "Server1 Deploying is started"
                 sh 'sleep 5'
             }
         }
+ stage('Server2') {
+                    steps {
+                        echo  "Server2 Deploying is started"
+                        sh 'sleep 5'
+                    }
+                }
     }
+
 }
