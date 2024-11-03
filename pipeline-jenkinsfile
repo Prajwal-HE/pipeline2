@@ -15,7 +15,6 @@ pipeline{
                       }
                     }
                   }
-          stages{
           parallel{
               stage('Pre-Test'){
                 steps{
@@ -23,7 +22,7 @@ pipeline{
                   sh 'sleep 5'
                   }
                  }
-                   stage('Test'){
+                   stage('Post-Test'){
                 steps{
                   echo "Testing is started"
                   sh 'sleep 5'
