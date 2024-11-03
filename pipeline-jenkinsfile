@@ -15,8 +15,8 @@ pipeline {
                         sh 'sleep 5'
                     }
                 }
-            }
-        }
+            
+        
         stage('Pre-Test and Post-Test') {
             parallel {
                 stage('Pre-Test') {
@@ -31,8 +31,8 @@ pipeline {
                         sh 'sleep 5'
                     }
                 }
-            }
-        }
+            
+        
         stage('Deploy') {
             steps {
                 echo "Deploying is started"
@@ -40,4 +40,8 @@ pipeline {
             }
         }
     }
+}
+}
+}
+}
 }
