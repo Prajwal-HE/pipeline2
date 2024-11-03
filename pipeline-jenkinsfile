@@ -6,7 +6,16 @@ pipeline {
                 stage('Pre-Build') {
                     steps {
                         echo "Pre-Building is started"
-                        sh 'sleep 5'
+                        sh '''#!/bin/bash
+                            echo "enter the word"
+                            read word
+                            rev_word=$(echo $word | rev)
+                            if [ $word == $rev_word ]
+                            then
+                            echo "$word is a pallandrome"
+                            else 
+                            echo "$word is not a pallandrome"
+                            fi'''
                     }
                 }
                 stage('Build') {
@@ -15,8 +24,8 @@ pipeline {
                         sh 'sleep 5'
                     }
                 }
-            
-        
+            }
+        }
         stage('Pre-Test and Post-Test') {
             parallel {
                 stage('Pre-Test') {
@@ -31,8 +40,8 @@ pipeline {
                         sh 'sleep 5'
                     }
                 }
-            
-        
+            }
+        }
         stage('Deploy') {
             steps {
                 echo "Deploying is started"
@@ -40,8 +49,4 @@ pipeline {
             }
         }
     }
-}
-}
-}
-}
 }
