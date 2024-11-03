@@ -1,6 +1,7 @@
 pipeline{
 agent any;
 stages{
+parallel{
 stage('Build'){
 steps {
 echo "Building is started"
@@ -20,5 +21,5 @@ sh 'sleep 5'
 }
 }
 }
-
+}
 }
